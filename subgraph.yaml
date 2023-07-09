@@ -1,0 +1,57 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: NiftyAdsFactory
+    network: sepolia
+    source:
+      address: "0x098147A292608b6674F4A59a64d08D0eb01B2804"
+      abi: NiftyAdsFactory
+      startBlock: 3848419
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - NewAdBanner
+        - OwnershipTransferred
+        - TokenBannerURIUpdated
+        - TokenDestinationURIUpdated
+        - TokenFeeNumeratorUpdated
+        - TokenHostURIUpdated
+        - TokenNoFollowUpdated
+        - TokenPriceUpdated
+        - TokenTermsURIUpdated
+        - Transfer
+      abis:
+        - name: NiftyAdsFactory
+          file: ./abis/NiftyAdsFactory.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: NewAdBanner(uint256,string,string,string,string,uint256,uint96,bool)
+          handler: handleNewAdBanner
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: TokenBannerURIUpdated(uint256,string)
+          handler: handleTokenBannerURIUpdated
+        - event: TokenDestinationURIUpdated(uint256,string)
+          handler: handleTokenDestinationURIUpdated
+        - event: TokenFeeNumeratorUpdated(uint256,uint96)
+          handler: handleTokenFeeNumeratorUpdated
+        - event: TokenHostURIUpdated(uint256,string)
+          handler: handleTokenHostURIUpdated
+        - event: TokenNoFollowUpdated(uint256,bool)
+          handler: handleTokenNoFollowUpdated
+        - event: TokenPriceUpdated(uint256,uint256)
+          handler: handleTokenPriceUpdated
+        - event: TokenTermsURIUpdated(uint256,string)
+          handler: handleTokenTermsURIUpdated
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/nifty-ads-factory.ts

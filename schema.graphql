@@ -1,0 +1,116 @@
+type Approval @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  approved: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ApprovalForAll @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  operator: Bytes! # address
+  approved: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type NewAdBanner @entity(immutable: true) {
+  id: Bytes!
+  nift_ad_id: BigInt! # uint256
+  host_url: String! # string
+  destination_url: String! # string
+  banner_media_url: String! # string
+  terms_url: String! # string
+  sale_price: BigInt! # uint256
+  feeNumerator: BigInt! # uint96
+  noFollow: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenBannerURIUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _newURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenDestinationURIUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _newURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenFeeNumeratorUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _feeNumerator: BigInt! # uint96
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenHostURIUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _newURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenNoFollowUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _nofollow: Boolean! # bool
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenPriceUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _newPrice: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TokenTermsURIUpdated @entity(immutable: true) {
+  id: Bytes!
+  _tokenId: BigInt! # uint256
+  _newURI: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  to: Bytes! # address
+  tokenId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

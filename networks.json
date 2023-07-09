@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "NiftyAdsFactory": {
+      "address": "0x098147A292608b6674F4A59a64d08D0eb01B2804",
+      "startBlock": 3848419
+    }
+  }
+}
